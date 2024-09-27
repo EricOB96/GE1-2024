@@ -1,14 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://yrwyjdfk6lsa"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_ofslo"]
+[ext_resource type="Material" uid="uid://cf58q5l20sa0p" path="res://green.tres" id="1_pi2uv"]
 [ext_resource type="Script" path="res://scenes/wall.gd" id="2_qp4sx"]
+[ext_resource type="Material" uid="uid://cg4ne4ltcard1" path="res://blue.tres" id="3_y463b"]
 [ext_resource type="PackedScene" uid="uid://bckpufo0pne7r" path="res://scenes/brick.tscn" id="3_yigjm"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvxwl"]
-albedo_color = Color(0.152941, 1, 0.184314, 1)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_02kfm"]
-material = SubResource("StandardMaterial3D_tvxwl")
+material = ExtResource("1_pi2uv")
 size = Vector2(20, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_d622m"]
@@ -18,9 +17,6 @@ albedo_color = Color(0.32549, 0.203922, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_r1ca7"]
 size = Vector3(0.3, 0.3, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl4rs"]
-albedo_color = Color(0.32549, 0.203922, 1, 1)
 
 [node name="Node3D" type="Node3D"]
 
@@ -36,7 +32,7 @@ script = ExtResource("1_ofslo")
 [node name="Turrent" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0376043, 0.677489, -0.343698)
 mesh = SubResource("BoxMesh_r1ca7")
-surface_material_override/0 = SubResource("StandardMaterial3D_hl4rs")
+surface_material_override/0 = ExtResource("3_y463b")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95844, 5.12458)
@@ -45,6 +41,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95844, 5.12458)
 transform = Transform3D(0.249348, 0.693995, 0.675423, -0.941099, 0.33813, 6.3874e-09, -0.228381, -0.63564, 0.737431, 1.26961, 0, 0.415881)
 
 [node name="wall" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284502, -5.3728)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284502, -43.5171)
 script = ExtResource("2_qp4sx")
 brick = ExtResource("3_yigjm")
