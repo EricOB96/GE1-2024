@@ -9,16 +9,15 @@ albedo_color = Color(0.152941, 1, 0.184314, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_02kfm"]
 material = SubResource("StandardMaterial3D_tvxwl")
-size = Vector2(10, 10)
+size = Vector2(20, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_d622m"]
-size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_43res"]
 albedo_color = Color(0.32549, 0.203922, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_r1ca7"]
-size = Vector3(0.1, 0.1, 0.5)
+size = Vector3(0.3, 0.3, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl4rs"]
 albedo_color = Color(0.32549, 0.203922, 1, 1)
@@ -29,18 +28,18 @@ albedo_color = Color(0.32549, 0.203922, 1, 1)
 mesh = SubResource("PlaneMesh_02kfm")
 
 [node name="Player" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.305452, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.633173, 0)
 mesh = SubResource("BoxMesh_d622m")
 surface_material_override/0 = SubResource("ORMMaterial3D_43res")
 script = ExtResource("1_ofslo")
 
 [node name="Turrent" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0145478, 0.303619, -0.343698)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0376043, 0.677489, -0.343698)
 mesh = SubResource("BoxMesh_r1ca7")
 surface_material_override/0 = SubResource("StandardMaterial3D_hl4rs")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948958, 2.06401)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95844, 5.12458)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.249348, 0.693995, 0.675423, -0.941099, 0.33813, 6.3874e-09, -0.228381, -0.63564, 0.737431, 1.26961, 0, 0.415881)
