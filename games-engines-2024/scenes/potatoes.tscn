@@ -1,4 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://yrwyjdfk6lsa"]
+[gd_scene load_steps=10 format=3 uid="uid://yrwyjdfk6lsa"]
+
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_ofslo"]
+[ext_resource type="Script" path="res://scenes/wall.gd" id="2_qp4sx"]
+[ext_resource type="PackedScene" uid="uid://bckpufo0pne7r" path="res://scenes/brick.tscn" id="3_yigjm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvxwl"]
 albedo_color = Color(0.152941, 1, 0.184314, 1)
@@ -28,14 +32,20 @@ mesh = SubResource("PlaneMesh_02kfm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.305452, 0)
 mesh = SubResource("BoxMesh_d622m")
 surface_material_override/0 = SubResource("ORMMaterial3D_43res")
+script = ExtResource("1_ofslo")
 
 [node name="Turrent" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0834823, 0.323237, -0.343698)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0145478, 0.303619, -0.343698)
 mesh = SubResource("BoxMesh_r1ca7")
 surface_material_override/0 = SubResource("StandardMaterial3D_hl4rs")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.699901, 2.06401)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948958, 2.06401)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.249348, 0.693995, 0.675423, -0.941099, 0.33813, 6.3874e-09, -0.228381, -0.63564, 0.737431, 1.26961, 0, 0.415881)
+
+[node name="wall" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284502, -5.3728)
+script = ExtResource("2_qp4sx")
+brick = ExtResource("3_yigjm")
