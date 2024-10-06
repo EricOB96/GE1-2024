@@ -10,7 +10,13 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spawn_tower()
-
+	"for row in range(rows):
+		for col in range(cols):
+			var brick = brick_scene.instantiate()
+			var pos = Vector3(col, row, 0)
+			brick.position = pos
+			add_child(brick)
+"
 	pass # Replace with function body.
 
 func spawn_tower():
@@ -26,7 +32,6 @@ func spawn_tower():
 			var mesh:MeshInstance3D = brick.get_node("MeshInstance3D")
 			mesh.set_surface_override_material(0, m)
 			add_child(brick)
-			
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
