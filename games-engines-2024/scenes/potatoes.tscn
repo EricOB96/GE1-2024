@@ -34,13 +34,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0376043, 0.677489, -0.3436
 mesh = SubResource("BoxMesh_r1ca7")
 surface_material_override/0 = ExtResource("3_y463b")
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.09392, 5.12458)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.249348, 0.693995, 0.675423, -0.941099, 0.33813, 6.3874e-09, -0.228381, -0.63564, 0.737431, 1.26961, 0, 0.415881)
 
 [node name="wall" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.864)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284502, -43.5171)
 script = ExtResource("2_qp4sx")
 brick_scene = ExtResource("3_yigjm")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.40225, 5.12458)
