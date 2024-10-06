@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://yrwyjdfk6lsa"]
+[gd_scene load_steps=9 format=3 uid="uid://yrwyjdfk6lsa"]
 
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_ofslo"]
 [ext_resource type="Material" uid="uid://cf58q5l20sa0p" path="res://green.tres" id="1_pi2uv"]
 [ext_resource type="Script" path="res://scenes/wall.gd" id="2_qp4sx"]
 [ext_resource type="Material" uid="uid://cg4ne4ltcard1" path="res://blue.tres" id="3_y463b"]
@@ -27,7 +26,6 @@ mesh = SubResource("PlaneMesh_02kfm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.633173, 0)
 mesh = SubResource("BoxMesh_d622m")
 surface_material_override/0 = SubResource("ORMMaterial3D_43res")
-script = ExtResource("1_ofslo")
 
 [node name="Turrent" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0376043, 0.677489, -0.343698)
