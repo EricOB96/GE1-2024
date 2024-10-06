@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://yrwyjdfk6lsa"]
+[gd_scene load_steps=11 format=3 uid="uid://yrwyjdfk6lsa"]
 
 [ext_resource type="Material" uid="uid://cf58q5l20sa0p" path="res://green.tres" id="1_pi2uv"]
-[ext_resource type="Script" path="res://scenes/wall.gd" id="2_qp4sx"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_6q7o6"]
+[ext_resource type="Script" path="res://scripts/wall.gd" id="2_qp4sx"]
 [ext_resource type="Material" uid="uid://cg4ne4ltcard1" path="res://blue.tres" id="3_y463b"]
-[ext_resource type="PackedScene" uid="uid://bckpufo0pne7r" path="res://scenes/brick_scene.tscn" id="3_yigjm"]
+[ext_resource type="PackedScene" uid="uid://dd6s7f3vcb5d0" path="res://scenes/brick.tscn" id="5_76o1l"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_02kfm"]
 material = ExtResource("1_pi2uv")
 size = Vector2(50, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_11ae5"]
+size = Vector3(48.7546, 1, 49.6445)
 
 [sub_resource type="BoxMesh" id="BoxMesh_d622m"]
 
@@ -22,10 +26,17 @@ size = Vector3(0.3, 0.3, 1)
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_02kfm")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.527374, 0, 0.197754)
+shape = SubResource("BoxShape3D_11ae5")
+
 [node name="Player" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.633173, 0)
 mesh = SubResource("BoxMesh_d622m")
 surface_material_override/0 = SubResource("ORMMaterial3D_43res")
+script = ExtResource("2_6q7o6")
 
 [node name="Turrent" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0376043, 0.677489, -0.343698)
@@ -39,6 +50,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.09392, 5.12458)
 transform = Transform3D(0.249348, 0.693995, 0.675423, -0.941099, 0.33813, 6.3874e-09, -0.228381, -0.63564, 0.737431, 1.26961, 0, 0.415881)
 
 [node name="wall" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284502, -43.5171)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284502, -14.9444)
 script = ExtResource("2_qp4sx")
-brick_scene = ExtResource("3_yigjm")
+brick_scene = ExtResource("5_76o1l")
