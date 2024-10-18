@@ -8,6 +8,8 @@ extends CharacterBody3D
 
 @export var fire_rate:int = 10
 
+@export var enemy: Node3D
+
 @onready  var timer = $Timer
 
 func print_stuff():
@@ -66,20 +68,21 @@ func _physics_process(delta: float) -> void:
 		timer.start()
 	pass
 	
-	@export var 
 	
-	func _process(delta: float) -> void:
-		var e = $"../enemy"
+func _process(delta: float) -> void:
+	var e = $"../enemy"
 		
-		var toEnemy:Vector3 = e.global_position - global_position
-		toEnemy = toEnemy.normalized()
-		var d:float = global_transform.basis.z.dot(toEnemy)
+	var toEnemy:Vector3 = e.global_position - global_position
+	toEnemy = toEnemy.normalized()
+	var d:float = global_transform.basis.z.dot(toEnemy)
 		
-		var theta = acos(d)
+	var theta = acos(d)
 		
-		theta = rad_to_deg(theta)
-		var fov = 45
-		if theta < fov:
-			DebugDraw2D.set_text("fov", "outside")
+	theta = rad_to_deg(theta)
+	var fov = 45
+	if theta > fov:
+		DebugDraw2D.set_text("fov", "outside")
+	else:
+		DebugDraw2D.set_text("fov","inside")
 		
-		
+	DebugDraw2D.set_text("THETA: ", theta)

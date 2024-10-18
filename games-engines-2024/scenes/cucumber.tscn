@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://45tdlh5wkwsx"]
+[gd_scene load_steps=16 format=3 uid="uid://45tdlh5wkwsx"]
 
 [ext_resource type="Script" path="res://scenes/TPCamera.gd" id="1_xtm0d"]
 [ext_resource type="Script" path="res://scenes/wall.gd" id="2_sqhuu"]
@@ -23,6 +23,8 @@ size = Vector3(0.1, 0.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yo8sf"]
 size = Vector3(0.1, 0.1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pjd8e"]
 
 [node name="root" type="Node3D"]
 
@@ -52,14 +54,13 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_307sh")
 
-[node name="tank" type="CharacterBody3D" parent="." node_paths=PackedStringArray("bullet_spawn")]
+[node name="tank" type="CharacterBody3D" parent="." node_paths=PackedStringArray("bullet_spawn", "enemy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("5_djhr7")
 speed = 10.0
-rot_speed = null
 bullet_scene = ExtResource("6_8eqrk")
 bullet_spawn = NodePath("bullet_spawn")
-fire_rate = null
+enemy = NodePath("../enemy")
 
 [node name="player" type="MeshInstance3D" parent="tank"]
 material_override = ExtResource("7_54npr")
@@ -97,3 +98,5 @@ elements = 22
 brick_size = 1.0
 
 [node name="enemy" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.55703, 0.538692, 0)
+mesh = SubResource("BoxMesh_pjd8e")
