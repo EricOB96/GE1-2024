@@ -6,7 +6,11 @@
 [ext_resource type="Script" path="res://scenes/tank.gd" id="3_1hidi"]
 [ext_resource type="Script" path="res://scenes/wall.gd" id="4_x4eqr"]
 [ext_resource type="PackedScene" uid="uid://buu3aq61omx1k" path="res://brick.tscn" id="5_nw2f7"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://cgkvpku4bjd0d" path="res://scenes/bullet.tscn" id="6_m6e34"]
+=======
+[ext_resource type="PackedScene" uid="uid://c1bnq83851e46" path="res://scenes/bullet.tscn" id="6_m6e34"]
+>>>>>>> Stashed changes
 [ext_resource type="Script" path="res://scenes/tower.gd" id="8_57hm3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_00q4b"]
@@ -55,7 +59,10 @@ shape = SubResource("WorldBoundaryShape3D_307sh")
 [node name="tank" type="CharacterBody3D" parent="." node_paths=PackedStringArray("bullet_spawn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("3_1hidi")
+<<<<<<< Updated upstream
 speed = 10.0
+=======
+>>>>>>> Stashed changes
 bullet_scene = ExtResource("6_m6e34")
 bullet_spawn = NodePath("bullet_spawn")
 
