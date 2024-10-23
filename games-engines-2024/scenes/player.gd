@@ -6,7 +6,7 @@ const JUMP_VELOCITY = 10
 
 var controlling = true
 
-@export var rot_speed = 180
+@export var rot_speed = 50
 
 var relative:Vector2 = Vector2.ZERO
 
@@ -40,7 +40,10 @@ func _input(event):
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pass # Replace with function body.
-	
+
+var max_pitch = deg_to_rad(89)
+var min_pitch = deg_to_rad(-89)	
+var current_pitch = 0.0
 
 func _physics_process(delta: float) -> void:
 	
@@ -58,11 +61,13 @@ func _physics_process(delta: float) -> void:
 	DebugDraw2D.set_text("DOT: ",d)
 	DebugDraw2D.set_text("f: ",f)
 	
-	rotate(Vector3.DOWN, deg_to_rad(relative.x * deg_to_rad(rot_speed) * delta))
+	rotation_handler(delta)
+	#rotate(Vector3.DOWN, deg_to_rad(relative.x * deg_to_rad(rot_speed) * delta))
 	
-	if d > 0.5:
-		rotate(transform.basis.x,deg_to_rad(relative.y * deg_to_rad(rot_speed) * delta))
-	relative = Vector2.ZERO
+	#if d > 0.05:
+	#	rotate(transform.basis.x,deg_to_rad(relative.y * deg_to_rad(rot_speed) * delta))
+		
+	#relative = Vector2.ZERO
 
 
 	# Add the gravity.
@@ -91,3 +96,16 @@ func _physics_process(delta: float) -> void:
 	velocity *= 0.9
 	
 	move_and_slide()
+	
+	
+func rotation_handler(delta: float) -> void:
+	rotate_y(deg_to_rad(-relative.x * rot_speed * delta))
+	
+	var pitch_change = deg_to_rad(relative.y * rot_speed * delta)
+	current_pitch += pitch_change
+	
+	current_pitch = clamp(current_pitch, min_pitch, max_pitch)
+	
+	rotation_degrees.x = rad_to_deg(current_pitch)
+	
+	relative = Vector2.ZERO
