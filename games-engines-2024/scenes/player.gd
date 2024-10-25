@@ -61,7 +61,9 @@ func _physics_process(delta: float) -> void:
 	DebugDraw2D.set_text("DOT: ",d)
 	DebugDraw2D.set_text("f: ",f)
 	
+	# handle rotation
 	rotation_handler(delta)
+	
 	#rotate(Vector3.DOWN, deg_to_rad(relative.x * deg_to_rad(rot_speed) * delta))
 	
 	#if d > 0.05:
@@ -99,13 +101,16 @@ func _physics_process(delta: float) -> void:
 	
 	
 func rotation_handler(delta: float) -> void:
+	# Yaw, rotate the global y axis
 	rotate_y(deg_to_rad(-relative.x * rot_speed * delta))
 	
+	# Pitch , up and down - local x axis
 	var pitch_change = deg_to_rad(relative.y * rot_speed * delta)
 	current_pitch += pitch_change
 	
+	# clamp the pitch
 	current_pitch = clamp(current_pitch, min_pitch, max_pitch)
-	
+	# Apply clamp to pitch
 	rotation_degrees.x = rad_to_deg(current_pitch)
-	
+	# Reset relative input vector
 	relative = Vector2.ZERO
