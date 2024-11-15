@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://5ugmd6pf0cj0"]
+
+[ext_resource type="Script" path="res://terrain_tile.gd" id="1_obnsm"]
+[ext_resource type="Script" path="res://FPController.gd" id="2_i63bb"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("1_obnsm")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0492333, 0.998787, 0, -0.998787, 0.0492333, 0, 1.13287, 0)
+script = ExtResource("2_i63bb")

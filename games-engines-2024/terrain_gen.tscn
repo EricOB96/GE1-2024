@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://boh8e6hop7l3w"]
+[gd_scene load_steps=6 format=3 uid="uid://bu108iietdacj"]
 
+[ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="2_3pjey"]
 [ext_resource type="Script" path="res://FPController.gd" id="2_rl0e7"]
-[ext_resource type="Material" uid="uid://12bqh76svrfe" path="res://blue.tres" id="2_s74er"]
-[ext_resource type="PackedScene" uid="uid://d2v5tptyj6j6i" path="res://terrain_tile.tscn" id="3_vb03k"]
+[ext_resource type="PackedScene" uid="uid://dfidw44btc4j0" path="res://terrain_tile.tscn" id="3_vb03k"]
 [ext_resource type="Script" path="res://infinite_terrain.gd" id="4_c8kae"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hmt7t"]
@@ -18,7 +18,7 @@ rot_speed = 180.0
 transform = Transform3D(0.474672, 0.880163, 0, -0.633669, 0.341738, 0.69403, 0.61086, -0.329437, 0.719946, 0, 11.0446, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = ExtResource("2_s74er")
+material_override = ExtResource("2_3pjey")
 mesh = SubResource("BoxMesh_hmt7t")
 
 [node name="infinite_terrain" type="Node3D" parent="." node_paths=PackedStringArray("player")]
